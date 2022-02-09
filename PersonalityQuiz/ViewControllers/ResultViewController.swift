@@ -28,15 +28,11 @@ class ResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.setHidesBackButton(true, animated: true)
         animalCountSelect()
         selectAnimalLabel.text = "Вы - \(select)"
         definitionLabel.text = definition
     }
-    override func viewWillAppear(_ animated: Bool) {
-            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        self.navigationController?.navigationItem.leftBarButtonItem?.isEnabled = false
-    }
-
 }
 // MARK: - Private Methods
 

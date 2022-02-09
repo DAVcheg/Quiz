@@ -37,7 +37,7 @@ class QuestionsViewController: UIViewController {
     private let questions = Question.getQuestions()
     private var answersChosen: [Answer] = []
     private var currentAnswers: [Answer] {
-        questions[questionIndex].answers
+        questions[questionIndex].answers
     }
     private var questionIndex = 0
     
@@ -150,7 +150,6 @@ extension QuestionsViewController {
         resultVC.chosen = answersChosen
         
         self.navigationController?.pushViewController(resultVC, animated: true)
-
     }
     
 }
