@@ -48,6 +48,13 @@ class QuestionsViewController: UIViewController {
         updateUI()
     }
     
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let resultVC = segue.destination as? ResultViewController else { return }
+        resultVC.chosen = answersChosen
+    }
+    
     // MARK: - IB Actions
     
     @IBAction func singleAnswerButtonPressed(_ sender: UIButton) {
@@ -140,16 +147,15 @@ extension QuestionsViewController {
             updateUI()
             return
         }
-        
-        // MARK: - Navigation
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let resultVC = storyboard.instantiateViewController(withIdentifier:
-        "resultViewController") as! ResultViewController
-        
-        resultVC.chosen = answersChosen
-        
-        self.navigationController?.pushViewController(resultVC, animated: true)
+        performSegue(withIdentifier: "showResult", sender: nil)
+    
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let resultVC = storyboard.instantiateViewController(withIdentifier:
+//        "resultViewController") as! ResultViewController
+//
+//        resultVC.chosen = answersChosen
+//
+//        self.navigationController?.pushViewController(resultVC, animated: true)
     }
     
 }
